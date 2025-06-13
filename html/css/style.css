@@ -23,6 +23,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     user-select: none;
+    background-image: url('https://cdn.discordapp.com/attachments/1383164415049728181/1383164593152589844/image.png?ex=684dcbe8&is=684c7a68&hm=b435e06cb2be7d91e45f48df8dba7ab1ca8da1a78f4246eda62ebf1b85407772&');
 }
 
 .container {
@@ -33,12 +34,22 @@ body {
 
     transform: translate(-50%, -50%);
 
+    justify-content: center;
+    align-items: center;
+
     width: 60vw;
     height: 35vw;
-    background-color: rgba(20, 20, 20, 0.9);
+
+    background-color: rgba(15, 15, 15, 0.95);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.25);
+    border: solid 0.1vw rgba(255, 255, 255, 0.05);
     
     padding: 2vw;
     border-radius: 1.5em;
+    overflow: scroll;
+
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
 }
 
 .header {
@@ -87,14 +98,173 @@ body {
     border-radius: 0.75em;
     background-color: rgba(10, 10, 10, 0.4);
     border: 0.5px solid #f5f5f517; 
-    padding: 0.25vw;
+    padding: 0.35vw;
+    height: 1.5vw;
+    width: 15vw;
+    font-size: 0.725vw;
+    font-weight: 500;
+    transition: 0.3s;
+    outline: none;
+    color: #BABABA;
 }
+
+.car-search-input:focus {
+    border: 0.5px solid #f5f5f52f;
+    color: #f3f3f3;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.07);
+}
+
+.car-search-input:hover {
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.04);
+}
+
+.car-search-input: {
+    outline: 0.5px solid #f5f5f52f;
+    color: #f3f3f3;
+}
+
 
 .car-placeholder {
     color: #BABABA;
-    font-size: 0.5vw;
+    font-size: 0.6vw;
     font-weight: 600;
     padding-left: 0.1vw;
     padding-bottom: 0.1vw;
     color: #BABABA;
+}
+
+.car {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+    gap: 0.5vw;
+    margin: auto;
+    padding: 0;
+    transition: 0.3s;
+    margin-top: 1vw;
+}
+
+.car li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    height: 7.5vw;
+    width: 13.5vw;
+
+    background: rgba(12, 12, 12, 0.8);
+    border-radius: 0.5vw;
+
+    padding: 0.5vw;
+
+    border: 0.1vw solid rgba(255, 255, 255, 0.05);
+
+    overflow: hidden;
+    
+    transition: 0.3s;
+}
+
+.car-type {
+    color: #838383;
+    font-weight: 500;
+}
+
+.car-name {
+    color: #aaaaaa;
+    font-weight: 600;
+    font-size: 1vw;
+}
+
+.car-state {
+    position: absolute;
+    left: 0.5vw;
+    bottom: 0.5vw;
+
+    font-size: 1.5vw;
+    font-weight: 600;
+    color: #e6e6e6;
+
+    transition: transform 0.4s ease, font-size 0.4s ease;
+    transform: translateY(0);
+}
+
+
+@keyframes font-size {
+
+    0% {
+        font-size: 1.5vw;
+    }
+
+    100% {
+        font-size: 1.25vw;
+    }
+
+}
+
+.car-button {
+    position: absolute;
+    bottom: 0.5vw;
+    right: 0.5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 1vw);
+    height: 2.25vw;
+
+    border-radius: 0.5vw;
+    background-color: #e6e6e6;
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.1);
+
+    color: #202020;
+    font-weight: 600;
+    cursor: pointer;
+
+    transform: translateY(3vw);
+    transition: transform 0.4s ease, opacity 0.4s ease, 0.4s;
+}
+
+
+.car li:hover .car-state {
+    transform: translateY(-2.75vw);
+    font-size: 1.25vw;
+}
+
+.car li:hover .car-button {
+    transform: translateY(0);
+}
+
+
+.car-button:hover {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    background-color: #f5f5f5;
+}
+
+.car-state-active {
+    position: relative;
+    margin-left: auto;
+    bottom: 3vw;
+
+    scale: 0.375;
+
+    border-radius: 50%;
+
+    color: rgba(0, 255, 85, 01);
+    box-shadow: 0px 0px 25px rgba(56, 168, 53, 0.5);
+
+    transition: 0.3s;
+}
+
+.car-state-active:active {
+    color: rgb(255, 57, 57);
+    box-shadow: 0px 0px 25px rgba(255, 10, 10, 0.5);
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
